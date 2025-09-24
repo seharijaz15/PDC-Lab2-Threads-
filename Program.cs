@@ -1,54 +1,19 @@
 ﻿using System;
 using System.Threading;
-
-class RainSimulation
+class pacMan
 {
-    static void Main()
+static void Main()
     {
-        string[] frames = new string[]
+        string line = "....................................";
+        int length = line.Length;
+        for(int i=0;i<length;i++)
         {
-@"
-     . . . . . . . . . . . . . . . . .
-     , , , , , , , , , , , , , , , , ,
-     , , , , , , , , , , , , , , , , ,
-           ~ ~ ~  A S H F A  ~ ~ ~
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
-     . . . . . . . . . . . . . . . . .",
-@"
-     , , , , , , , , , , , , , , , , ,
-     . . . . . . . . . . . . . . . . .
-           ~ ~ ~  A S H F A  ~ ~ ~
-     , , , , , , , , , , , , , , , , ,
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
-     . . . . . . . . . . . . . . . . .",
-@"
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
-     . . . . . . . . . . . . . . . . .
-           ~ ~ ~  A S H F A  ~ ~ ~
-     , , , , , , , , , , , , , , , , ,
-     . . . . . . . . . . . . . . . . .
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '",
-@"
-     . . . . . . . . . . . . . . . . .
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '
-           ~ ~ ~  A S H F A  ~ ~ ~
-     . . . . . . . . . . . . . . . . .
-     , , , , , , , , , , , , , , , , ,
-     ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
-        };
-
-        Console.CursorVisible = false;
-
-        for (int i = 0; i < 150; i++)
-        {
-            foreach (string frame in frames)
-            {
-                Console.SetCursorPosition(0, 0);
-                Console.Write(frame);
-                Thread.Sleep(120); // Slower for elegance
-            }
+            Console.Write("\r" + new string(' ', i) + "Ashfa" + line.Substring(i + 1));
+            Thread.Sleep(200);
+            Console.Write("\r" + new string(' ', i+1) + line.Substring(i + 1));
+            Thread.Sleep(200);
         }
-
-        Console.CursorVisible = true;
+        Console.Write("\r" + new string(' ',length) + "Ashfa");
+        Console.WriteLine("\n\nGame Over!Pac-Man ate all the dots");
     }
 }
